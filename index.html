@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tresbontech Academy — AI Education Guide for Tutors</title>
+<meta name="description" content="A comprehensive, research-backed guide for Tresbontech Academy tutors teaching AI to students aged 10–17.">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/brand.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+<div id="mobileMenu" class="mobile-menu"></div>
+<header class="navbar" id="navbar"></header>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content animate-fadeUp">
+      <div class="hero-eyebrow">
+        <span class="hero-dot"></span>
+        Tresbontech Academy · Staff Training Guide
+      </div>
+      <h1 class="display hero-title">
+        Teaching<br><span>AI to the</span><br>Next Gen
+      </h1>
+      <p class="hero-sub">A comprehensive, research-backed playbook for Tresbontech tutors. Learn to introduce AI education to students aged 10–17 — whether they code or not — and ensure every skill lands as a practical, real-world ability.</p>
+      <div class="hero-tags">
+        <span class="hero-tag">Ages 10–17</span>
+        <span class="hero-tag">Two Entry Tracks</span>
+        <span class="hero-tag">12-Week Roadmap</span>
+        <span class="hero-tag">20+ Projects</span>
+        <span class="hero-tag">Portfolio-First</span>
+      </div>
+      <div class="hero-btns">
+        <a href="pages/tracks.html" class="btn btn-white btn-lg">Start with Two Tracks →</a>
+        <a href="pages/roadmap.html" class="btn btn-outline btn-lg" style="color:white;border-color:rgba(255,255,255,0.4)">View Roadmap</a>
+      </div>
+    </div>
+    <div class="hero-visual animate-fadeUp-2">
+      <div class="hero-float-1">
+        <strong>10+</strong>
+        <span>Age range covered</span>
+      </div>
+      <div class="hero-card-main">
+        <div class="hcm-eyebrow label" style="color:#8888a8">SELECT YOUR STUDENT'S TRACK</div>
+        <div class="hcm-track-switch">
+          <button class="hcm-track-btn active" id="heroTrackA" onclick="switchHeroTrack('A')">💻 Already Codes</button>
+          <button class="hcm-track-btn" id="heroTrackB" onclick="switchHeroTrack('B')">🌱 New to Code</button>
+        </div>
+        <div class="hcm-steps" id="heroSteps">
+          <div class="hcm-step done">
+            <div class="hcm-step-num">✓</div>
+            <div class="hcm-step-content">
+              <div class="hcm-step-title">Python + AI APIs</div>
+              <div class="hcm-step-sub">Hands-on model building</div>
+            </div>
+          </div>
+          <div class="hcm-step done">
+            <div class="hcm-step-num">✓</div>
+            <div class="hcm-step-content">
+              <div class="hcm-step-title">Prompt Engineering in Code</div>
+              <div class="hcm-step-sub">Structured, testable prompts</div>
+            </div>
+          </div>
+          <div class="hcm-step">
+            <div class="hcm-step-num">3</div>
+            <div class="hcm-step-content">
+              <div class="hcm-step-title">Bias Audit + Ethics</div>
+              <div class="hcm-step-sub">Evaluating model fairness</div>
+            </div>
+          </div>
+          <div class="hcm-step">
+            <div class="hcm-step-num">4</div>
+            <div class="hcm-step-content">
+              <div class="hcm-step-title">Build & Deploy Live App</div>
+              <div class="hcm-step-sub">Real portfolio project</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-float-2">
+        <div class="hf2-icon">🎯</div>
+        <div>
+          <strong>Practical-First</strong>
+          <small>Every session has a real output</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ STATS ═══════ -->
+<section class="stats-strip">
+  <div class="stats-strip-inner">
+    <div class="stat-item">
+      <span class="stat-num"><span data-count="12">12</span></span>
+      <span class="stat-label">Week Curriculum</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num"><span data-count="2">2</span></span>
+      <span class="stat-label">Entry Tracks</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num"><span data-count="20">20</span><span style="color:var(--blue-light)">+</span></span>
+      <span class="stat-label">Practical Projects</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num"><span data-count="18">18</span></span>
+      <span class="stat-label">AI Tools Mapped</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num"><span data-count="7">7</span></span>
+      <span class="stat-label">Myths Busted</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num"><span data-count="12">12</span></span>
+      <span class="stat-label">Quiz Questions</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TWO TRACKS ═══════ -->
+<section class="tracks-feature">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">// Section 01</div>
+      <h2 class="heading-xl section-title">Two Tracks<br>One Destination</h2>
+      <p class="section-intro">Every student arrives at AI education from a different starting point. Tresbontech's two-track system meets them exactly where they are.</p>
+    </div>
+    <div class="tracks-grid">
+      <div class="track-feature-card track-a">
+        <div class="tfc-label">Track A — Code-First</div>
+        <div class="tfc-title">Already<br>Writes Code</div>
+        <p class="tfc-sub">Students with at least 3 months of Python or similar. They can write functions independently and ask "how does this work?" before "what can this do?"</p>
+        <div class="tfc-items">
+          <div class="tfc-item"><span class="tfc-check">✓</span> Python + sklearn + HuggingFace</div>
+          <div class="tfc-item"><span class="tfc-check">✓</span> Train, evaluate, and deploy real models</div>
+          <div class="tfc-item"><span class="tfc-check">✓</span> Prompt engineering inside code</div>
+          <div class="tfc-item"><span class="tfc-check">✓</span> Bias audits with technical tools</div>
+        </div>
+        <a href="pages/tracks.html" class="btn btn-white btn-sm" style="margin-top:24px">Explore Track A →</a>
+      </div>
+      <div class="track-feature-card track-b">
+        <div class="tfc-label">Track B — Concept-First</div>
+        <div class="tfc-title">New to<br>Coding</div>
+        <p class="tfc-sub">Students with zero to minimal coding experience. Entry through AI concepts, ethics, and no-code tools. This track builds genuinely professional skills.</p>
+        <div class="tfc-items">
+          <div class="tfc-item"><span class="tfc-check" style="color:var(--blue)">✓</span> Teachable Machine & visual ML</div>
+          <div class="tfc-item"><span class="tfc-check" style="color:var(--blue)">✓</span> Prompt engineering as a craft</div>
+          <div class="tfc-item"><span class="tfc-check" style="color:var(--blue)">✓</span> AI ethics & critical thinking</div>
+          <div class="tfc-item"><span class="tfc-check" style="color:var(--blue)">✓</span> No-code AI project portfolio</div>
+        </div>
+        <a href="pages/tracks.html" class="btn btn-primary btn-sm" style="margin-top:24px">Explore Track B →</a>
+      </div>
+    </div>
+    <div class="callout callout-blue" style="margin-top:28px">
+      <strong>Key insight:</strong> Track B is not "the easy track." Prompt engineering, AI ethics, and workflow automation are high-value professional skills in 2025. Many AI Product Managers earn more than engineers and write zero code. Both tracks are rigorous — just differently skilled.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WHY PRACTICAL ═══════ -->
+<section class="why-practical">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">// The Core Principle</div>
+      <h2 class="heading-xl section-title">Why Practical<br>Skills First?</h2>
+      <p class="section-intro">The number one failure in AI education is teaching concepts students can't apply the next day. Every Tresbontech session is built around one test.</p>
+    </div>
+    <div class="callout callout-yellow" style="margin-bottom:40px">
+      <strong>The Practical Test:</strong> After every lesson, ask: "Could this student use what they just learned to do something useful tomorrow — without me?" If the answer is no, the lesson wasn't practical enough.
+    </div>
+    <div class="practical-grid">
+      <div class="practical-card" data-animate>
+        <div class="pc-num">01</div>
+        <div class="pc-icon">🎯</div>
+        <div class="pc-title">Real Problem First</div>
+        <p class="pc-body">Never introduce an AI concept in the abstract. Anchor every concept to a specific real-world problem it solves. <strong>"Neural networks" → "How your phone unlocks with your face."</strong> Problem first, concept second, always.</p>
+      </div>
+      <div class="practical-card" data-animate>
+        <div class="pc-num">02</div>
+        <div class="pc-icon">🛠</div>
+        <div class="pc-title">Build Before Explain</div>
+        <p class="pc-body">Let students build first, then explain why it worked. Training a model before explaining how training data works creates genuine curiosity. <strong>Experience creates the question; explanation answers it.</strong></p>
+      </div>
+      <div class="practical-card" data-animate>
+        <div class="pc-num">03</div>
+        <div class="pc-icon">📦</div>
+        <div class="pc-title">Every Session Has Output</div>
+        <p class="pc-body">A model. A prompt recipe. A report. A web page. If a student can't physically show something at the end of the session, <strong>the session was too theoretical.</strong> No output = no practical learning.</p>
+      </div>
+      <div class="practical-card" data-animate>
+        <div class="pc-num">04</div>
+        <div class="pc-icon">📱</div>
+        <div class="pc-title">Connect to Their Life</div>
+        <p class="pc-body">Students aged 10–17 use AI constantly — Spotify, TikTok, Google autocomplete, Snapchat filters. <strong>Make the invisible visible.</strong> "You used AI at least 50 times before you got here today."</p>
+      </div>
+      <div class="practical-card" data-animate>
+        <div class="pc-num">05</div>
+        <div class="pc-icon">👥</div>
+        <div class="pc-title">Peer Teaching Cements It</div>
+        <p class="pc-body">When a Track B student explains prompt engineering to a classmate, they own it. <strong>Peer teaching is the highest form of AI practice</strong> — it forces clarity, reveals gaps, and builds confidence simultaneously.</p>
+      </div>
+      <div class="practical-card" data-animate>
+        <div class="pc-num">06</div>
+        <div class="pc-icon">🌍</div>
+        <div class="pc-title">The "So What?" Rule</div>
+        <p class="pc-body">After every project, students complete: <strong>"I built [X] which could help [person] to [do Y] instead of [old way]."</strong> If they can't complete it, the project wasn't practical enough. This also becomes their portfolio description.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="pages/practical.html" class="btn btn-primary btn-lg">Full Practical Framework →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ROADMAP PREVIEW ═══════ -->
+<section class="roadmap-preview">
+  <div class="container">
+    <div class="section-header" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px">
+      <div>
+        <div class="section-eyebrow">// Section 02</div>
+        <h2 class="heading-xl section-title" style="margin-bottom:8px">12-Week<br>Roadmap</h2>
+        <p class="section-intro" style="margin-bottom:0">A structured progression with differentiated activities for both tracks.</p>
+      </div>
+      <a href="pages/roadmap.html" class="btn btn-outline">View Full Roadmap →</a>
+    </div>
+    <div class="roadmap-scroll" id="roadmapScroll"></div>
+  </div>
+</section>
+
+<!-- ═══════ TOOLS PREVIEW ═══════ -->
+<section class="tools-preview">
+  <div class="container">
+    <div class="section-header" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px">
+      <div>
+        <div class="section-eyebrow">// Section 04</div>
+        <h2 class="heading-xl section-title" style="margin-bottom:8px">Best Tools<br>for Teaching AI</h2>
+        <p class="section-intro" style="margin-bottom:0">Matched to track, age, and learning objective.</p>
+      </div>
+      <a href="pages/tools.html" class="btn btn-outline">All 18 Tools →</a>
+    </div>
+    <div class="tools-tabs" id="toolsTabs">
+      <button class="tt-tab active" onclick="showTab('visual',this)">🌱 No-Code / Visual</button>
+      <button class="tt-tab" onclick="showTab('code',this)">💻 Code-Based</button>
+      <button class="tt-tab" onclick="showTab('both',this)">✨ Both Tracks</button>
+    </div>
+    <div class="tt-panel active" id="tp-visual" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px"></div>
+    <div class="tt-panel" id="tp-code" style="display:none;grid-template-columns:repeat(3,1fr);gap:16px"></div>
+    <div class="tt-panel" id="tp-both" style="display:none;grid-template-columns:repeat(3,1fr);gap:16px"></div>
+  </div>
+</section>
+
+<!-- ═══════ PROJECTS PREVIEW ═══════ -->
+<section class="projects-preview">
+  <div class="container">
+    <div class="section-header" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px">
+      <div>
+        <div class="section-eyebrow">// Section 03</div>
+        <h2 class="heading-xl section-title" style="margin-bottom:8px">Featured<br>AI Projects</h2>
+        <p class="section-intro" style="margin-bottom:0">Every project has a real output students can share or build on.</p>
+      </div>
+      <a href="pages/projects.html" class="btn btn-outline">All 20+ Projects →</a>
+    </div>
+    <div class="projects-masonry" id="featuredProjects"></div>
+  </div>
+</section>
+
+<!-- ═══════ CTA BAND ═══════ -->
+<section class="cta-band">
+  <div class="cta-band-inner">
+    <div class="cta-band-text">
+      <h2 class="cta-band-title">Ready to Test<br><span>Your AI Teaching</span> Knowledge?</h2>
+      <p class="cta-band-sub">12 scenario-based questions. Target score: 10/12. Every question teaches as much as it tests.</p>
+    </div>
+    <div class="cta-band-actions">
+      <a href="pages/quiz.html" class="btn btn-primary btn-lg">Take the Quiz →</a>
+      <a href="pages/checklist.html" class="btn btn-outline btn-lg" style="color:white;border-color:rgba(255,255,255,0.3)">Session Checklist</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="siteFooter"></footer>
+
+<script src="js/shared.js"></script>
+<script>
+// ─── DATA ───
+const roadmapPreview = [
+  { week:'WK 01–02', color:'#1E79F7', title:'What Actually Is AI?', short:'Demystifying the buzzword for real', trackA:'Python: query a pre-trained model in 3 lines', trackB:'Teachable Machine: train your first image classifier' },
+  { week:'WK 03–04', color:'#FFB800', title:'Data: The Fuel of AI', short:'Why data quality determines everything', trackA:'Pandas + sklearn: clean vs dirty data', trackB:'Collect your own dataset, discuss bias' },
+  { week:'WK 05–06', color:'#52AF33', title:'Prompt Engineering', short:'The most practical AI skill of our era', trackA:'OpenAI API: system prompts + few-shot prompting', trackB:'Prompt recipe book with 8+ tested prompts' },
+  { week:'WK 07–08', color:'#F03009', title:'AI Ethics & Critical Thinking', short:'Building responsible AI citizens', trackA:'Fairness metrics + bias audit with real data', trackB:'Case studies + designing an AI ethics framework' },
+  { week:'WK 09–10', color:'#8B5CF6', title:'Build Something Real', short:'Project sprint — all concepts applied', trackA:'Full project: data → train → test → deploy', trackB:'No-code project + real audience demo' },
+  { week:'WK 11–12', color:'#14B8A6', title:'AI Careers & The Future', short:'Where AI is going, where they fit', trackA:'GitHub portfolio + next skills roadmap', trackB:'Portfolio page + AI future self presentation' },
+];
+
+const toolsPreview = {
+  visual: [
+    { emoji:'🤖', name:'Teachable Machine', desc:'Train image, sound, and pose models in the browser. Zero code. Results in 30 seconds. The best "wow moment" tool for Track B.', meta:['free','visual','ages 10+'] },
+    { emoji:'💬', name:'ChatGPT / Claude', desc:'The universal prompt engineering classroom. Students use these to solve real problems — not just chat.', meta:['free tier','visual','ages 12+'] },
+    { emoji:'📊', name:'Orange Data Mining', desc:'Visual drag-and-drop ML. See decision trees, clusters, and predictions with no code. Perfect for data literacy.', meta:['free','visual','ages 12+'] },
+    { emoji:'🎨', name:'DALL-E / Midjourney', desc:'AI image generation. Great for understanding how AI interprets text — and discussing visual bias.', meta:['free tier','visual','ages 11+'] },
+    { emoji:'🧩', name:'ML for Kids', desc:'Connects Teachable Machine models to Scratch games. Perfect bridge for students already using Scratch.', meta:['free','visual','ages 10–13'] },
+    { emoji:'🌐', name:'AI Experiments (Google)', desc:'Browser experiments showing AI concepts interactively. Perfect for sparking curiosity before going deeper.', meta:['free','visual','ages 10+'] },
+  ],
+  code: [
+    { emoji:'🐍', name:'Python + scikit-learn', desc:'Industry standard for ML. Train classifiers, regressors, and clusterers. Start with built-in datasets.', meta:['free','code','ages 13+'] },
+    { emoji:'📓', name:'Google Colab', desc:'Jupyter notebooks in the cloud with free GPU. Industry-standard environment accessible to all.', meta:['free','code','ages 14+'] },
+    { emoji:'🤗', name:'HuggingFace API', desc:'Access thousands of pre-trained models with 5 lines of Python. Sentiment, generation, classification.', meta:['free tier','code','ages 13+'] },
+    { emoji:'🌐', name:'Replit', desc:'Browser-based Python IDE. No installation. Share projects with a link — perfect for sessions.', meta:['free','code','ages 11+'] },
+    { emoji:'🧠', name:'OpenAI API', desc:'Build chatbots, document processors, and AI assistants. An essential Track A skill.', meta:['paid','code','ages 14+'] },
+    { emoji:'📱', name:'Streamlit', desc:'Turn Python scripts into shareable web apps in minutes. The fastest way to make an AI project professional.', meta:['free','code','ages 13+'] },
+  ],
+  both: [
+    { emoji:'🗂', name:'Kaggle', desc:'Real datasets + community notebooks. Track A students use code; Track B uses AutoML to explore without code.', meta:['free','both','ages 13+'] },
+    { emoji:'🤖', name:'GitHub Copilot', desc:'AI code assistant. Track A: an accelerator. Track B: an intro to the concept of AI that writes code.', meta:['free for students','both','ages 13+'] },
+    { emoji:'🌊', name:'Perplexity AI', desc:'AI research tool that cites sources. Great for research projects and discussing AI accuracy and sourcing.', meta:['free tier','both','ages 11+'] },
+    { emoji:'📽', name:'Canva AI Suite', desc:'AI image generation, text-to-presentation, and background removal. Ideal for Track B projects needing a professional finish.', meta:['free','both','ages 10+'] },
+    { emoji:'🔬', name:'ML Playground', desc:'Interactive browser-based ML demos. Drag data points, watch models train in real time. Instant visual feedback.', meta:['free','both','ages 10+'] },
+    { emoji:'🎤', name:'Whisper (OpenAI)', desc:'Speech-to-text AI. Build voice-powered projects. A gateway to understanding audio ML models.', meta:['free','both','ages 12+'] },
+  ]
+};
+
+const featuredProjects = [
+  { emoji:'🖼', title:'Image Classifier', desc:'Train a model to tell apart 3 things you choose using Teachable Machine. Zero code. Real ML in 10 minutes. Students keep the link to share.', track:'nocode', diff:1, color:'#FFB800', tags:['Track B','Teachable Machine'] },
+  { emoji:'💬', title:'Custom AI Chatbot', desc:'Use the OpenAI API + Python to build a chatbot with a custom personality — study buddy, cooking assistant, or fictional character.', track:'code', diff:2, color:'#1E79F7', tags:['Track A','Python'] },
+  { emoji:'😊', title:'Emotion Detector', desc:'Detect happy vs sad vs neutral from webcam using face-api.js. Runs entirely in the browser — no backend needed.', track:'both', diff:2, color:'#14B8A6', tags:['Both Tracks','JavaScript'] },
+  { emoji:'📰', title:'Fake News Detector', desc:'Train a text classifier to distinguish real from fake news headlines using a public dataset. Introduction to NLP with scikit-learn.', track:'code', diff:3, color:'#1E79F7', tags:['Track A','NLP'] },
+  { emoji:'✍️', title:'AI Writing Assistant', desc:'Engineer a prompt that acts as an editor for a specific type of writing. Test on 5 real examples and document improvements.', track:'nocode', diff:1, color:'#FFB800', tags:['Track B','Prompting'] },
+  { emoji:'🔊', title:'Voice Command Classifier', desc:'Record 3 custom voice commands, train an audio model with Teachable Machine, and build a browser page that responds to your voice.', track:'both', diff:2, color:'#52AF33', tags:['Both Tracks','Audio ML'] },
+];
+
+// ─── RENDER ROADMAP PREVIEW ───
+function renderRoadmapPreview() {
+  const el = document.getElementById('roadmapScroll');
+  el.innerHTML = roadmapPreview.map(r => `
+    <div class="roadmap-card" style="--rc-color:${r.color}">
+      <div class="rc-week">${r.week}</div>
+      <div class="rc-title">${r.title}</div>
+      <div class="rc-short">${r.short}</div>
+      <div class="rc-tracks">
+        <span class="rc-track-badge rc-track-a">Track A</span>
+        <span class="rc-track-badge rc-track-b">Track B</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ─── RENDER TOOLS ───
+function renderToolsPreview() {
+  Object.entries(toolsPreview).forEach(([key, tools]) => {
+    document.getElementById(`tp-${key}`).innerHTML = tools.map(t => `
+      <div class="tool-card-new">
+        <div class="tcn-emoji">${t.emoji}</div>
+        <div class="tcn-name">${t.name}</div>
+        <div class="tcn-desc">${t.desc}</div>
+        <div class="tcn-meta">
+          ${t.meta.map(m => `<span class="tcn-tag${m.includes('free') ? ' free' : ''}">${m}</span>`).join('')}
+        </div>
+      </div>
+    `).join('');
+  });
+}
+
+function showTab(key, btn) {
+  document.querySelectorAll('.tt-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tt-panel').forEach(p => { p.style.display = 'none'; p.classList.remove('active'); });
+  btn.classList.add('active');
+  const panel = document.getElementById(`tp-${key}`);
+  panel.style.display = 'grid';
+  panel.classList.add('active');
+}
+
+// ─── RENDER FEATURED PROJECTS ───
+function renderFeaturedProjects() {
+  const el = document.getElementById('featuredProjects');
+  el.innerHTML = featuredProjects.map(p => {
+    const pips = [1,2,3,4].map(n => `<div class="proj-pip${n<=p.diff?' on':''}"></div>`).join('');
+    const trackLabel = p.track === 'code' ? '💻 Track A' : p.track === 'nocode' ? '🌱 Track B' : '✨ Both';
+    const trackClass = p.track === 'code' ? 'badge-blue' : p.track === 'nocode' ? 'badge-yellow' : 'badge-green';
+    return `
+      <div class="project-card" style="--pc-color:${p.color}">
+        <div class="proj-emoji">${p.emoji}</div>
+        <div class="proj-title">${p.title}</div>
+        <p class="proj-desc">${p.desc}</p>
+        <div class="proj-footer">
+          <span class="badge ${trackClass}">${trackLabel}</span>
+          <div class="proj-diff">${pips}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ─── HERO TRACK SWITCH ───
+function switchHeroTrack(track) {
+  const stepsA = [
+    { done:true, title:'Python + AI APIs', sub:'Hands-on model building' },
+    { done:true, title:'Prompt Engineering in Code', sub:'Structured, testable prompts' },
+    { done:false, title:'Bias Audit + Ethics', sub:'Evaluating model fairness' },
+    { done:false, title:'Build & Deploy Live App', sub:'Real portfolio project' },
+  ];
+  const stepsB = [
+    { done:true, title:'Teachable Machine Model', sub:'Zero code, real ML in 10 min' },
+    { done:true, title:'Prompt Recipe Book', sub:'8+ tested real-world prompts' },
+    { done:false, title:'AI Ethics Case Study', sub:'Research + present findings' },
+    { done:false, title:'No-Code Project Portfolio', sub:'Shareable, demonstrable work' },
+  ];
+  document.getElementById('heroTrackA').classList.toggle('active', track === 'A');
+  document.getElementById('heroTrackB').classList.toggle('active', track === 'B');
+  const steps = track === 'A' ? stepsA : stepsB;
+  document.getElementById('heroSteps').innerHTML = steps.map((s, i) => `
+    <div class="hcm-step${s.done?' done':''}">
+      <div class="hcm-step-num">${s.done ? '✓' : i+1}</div>
+      <div class="hcm-step-content">
+        <div class="hcm-step-title">${s.title}</div>
+        <div class="hcm-step-sub">${s.sub}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderRoadmapPreview();
+  renderToolsPreview();
+  renderFeaturedProjects();
+});
+</script>
+</body>
+</html>

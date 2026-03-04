@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knowledge Quiz — Tresbontech Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/brand.css">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+<div id="mobileMenu" class="mobile-menu"></div>
+<header class="navbar" id="navbar"></header>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb"><a href="../index.html">Home</a><span>/</span>Knowledge Quiz</div>
+    <h1 class="heading-xl page-hero-title">Test Your AI<br>Teaching Knowledge</h1>
+    <p class="page-hero-sub">12 scenario-based questions. Every question teaches as much as it tests. Target score for Tresbontech AI tutors: 10/12 or above.</p>
+  </div>
+</div>
+<section class="quiz-container">
+  <div class="container">
+    <div class="quiz-wrap" id="quizWrap"></div>
+  </div>
+</section>
+<footer class="site-footer" id="siteFooter"></footer>
+<script src="../js/shared.js"></script>
+<script>
+const quizData = [
+  { q:'A 12-year-old student has been coding in Python for 6 months and asks to join your AI class. Which track do you place her in?', sc:'She can write functions and has built 2 small projects independently.',
+    opts:['Track B — she should start with concepts regardless of coding experience','Track A — her coding background makes her ready for the code-first path','Start her in both tracks simultaneously','Make her take a maths test first to assess readiness'],
+    ans:1, exp:'Track A is for students who can already write code independently. 6 months of Python + project experience is exactly the entry point. Starting her in Track B would be a demotivating underestimation of her skills and a missed opportunity.' },
+  { q:'A student trains a Teachable Machine image classifier and asks: "But how does it actually know it\'s a cat?" What is the ideal Tresbontech response?',sc:'',
+    opts:['Tell them the full technical explanation of convolutional neural networks immediately','Say "great question — we\'ll get to that later" and move on','Ask: "What do YOU think it\'s doing? Let\'s train it on confusing examples and see what breaks"','Tell them it\'s too complex to explain right now'],
+    ans:2, exp:'The Socratic approach turns curiosity into a learning experience. Breaking the model deliberately (showing it confusing examples) makes learning experiential and naturally leads to discussing training data quality and feature extraction.' },
+  { q:'It\'s Week 1. A Track B student says "AI is basically magic — it just figures everything out by itself." What do you say?',sc:'',
+    opts:['Agree — AI is impressive and the details don\'t matter for beginners','Correct them immediately with a technical definition of machine learning','Ask: "What if I told you AI is actually more like a very fast student who needs lots of examples? Let\'s test that idea right now."','Explain that AI uses complex maths to process information'],
+    ans:2, exp:'The metaphor of AI as a student who learns from examples is accurate and accessible. Following it immediately with hands-on experience makes the concept concrete and testable rather than abstract.' },
+  { q:'A Track A student\'s AI model has 95% accuracy. They\'re proud and want to submit it. You notice the test dataset is 95% one class. What do you do?',sc:'The model may simply be predicting the majority class every time.',
+    opts:['Accept it — 95% is excellent for a beginner','Challenge them: "Look at the accuracy PER class. What does that tell you?"','Tell them it\'s wrong and ask them to start over','Explain class imbalance through a lecture first, then ask them to investigate'],
+    ans:1, exp:'Directing them to per-class accuracy is a perfect Socratic moment that teaches them to discover the class imbalance problem themselves. This teaches a critical technical skill (evaluation beyond accuracy) and a scientific mindset (question your results).' },
+  { q:'Which tool combination is BEST for a brand new 11-year-old Track B student\'s first AI session?',sc:'',
+    opts:['Google Colab + scikit-learn — professional tools from day one','Teachable Machine + brief discussion about training data — immediate wow moment','ChatGPT only — easiest possible entry point','A 30-minute lecture on what AI is, then Teachable Machine'],
+    ans:1, exp:'Teachable Machine provides a real ML model training experience in under 10 minutes with zero code. Following it with a short discussion grounds the experience in real concepts. Experience first, explanation second.' },
+  { q:'A parent complains that their 14-year-old "is just playing with ChatGPT" in your AI class. How do you respond?',sc:'The student has been building a sophisticated, documented prompt engineering system.',
+    opts:['Apologise and promise to do more technical content','Show them job listings for "Prompt Engineer" roles, then show their child\'s documented "Prompt Recipe Book"','Tell them to trust the process without more context','Switch the student to a coding-heavy track immediately'],
+    ans:1, exp:'Parents need evidence, not defensiveness. Showing real job postings validates the skill immediately. Showing the student\'s actual documented work proves it\'s rigorous, not passive. Evidence always wins this conversation.' },
+  { q:'You want to teach AI ethics to 13-year-olds. Which approach is MOST effective?',sc:'',
+    opts:['A 20-minute lecture with slides on the history of algorithmic bias','Show a real case where biased AI caused specific harm to someone their age, then ask: "How did this happen? Could it happen to you?"','Give them an academic reading on AI fairness to study','Start with a coding exercise on fairness metrics'],
+    ans:1, exp:'Proximity to real harm creates genuine engagement with ethics. Connecting it to their age group makes it personal. "How could this happen?" activates critical thinking. Ethics teaching must be case-led, not lecture-led.' },
+  { q:'What is the "3-2-1 Session Structure" for Tresbontech AI sessions?',sc:'',
+    opts:['3 students per group, 2 computers, 1 tutor','3 new concepts introduced, 2 hands-on activities completed, 1 real takeaway/output per student','3 hours of content, 2 breaks, 1 assessment at the end','3 topics per week, 2 learning tracks, 1 combined curriculum'],
+    ans:1, exp:'3 concepts per session (working memory limit), at least 2 hands-on activities (one guided, one independent), and 1 real output every student leaves with. Based on cognitive load theory and constructivist learning research.' },
+  { q:'A Track B student finishes a project and can\'t complete: "I built X which could help Y person do Z." What does this tell you?',sc:'',
+    opts:['The student is not very creative — help them with the sentence','The project lacked practical grounding — they need to redesign it with a clearer real-world use case','The sentence format is too hard for their age','Nothing — not all projects need a practical application'],
+    ans:1, exp:'The "So What?" statement is a diagnostic tool for practical relevance. An unclear answer means the project needs a real use case built in. If a student can\'t articulate why their project matters, it doesn\'t matter enough yet.' },
+  { q:'Which maths requirement statement is correct for Tresbontech AI education?',sc:'',
+    opts:['Students need calculus before learning any AI','Middle-school maths (proportions, averages, basic probability) is sufficient to start using and understanding AI meaningfully','No maths is needed at all for AI education','Only Track A students need to understand any mathematics'],
+    ans:1, exp:'Advanced maths is needed to DESIGN ML algorithms — not to USE them, understand them conceptually, or build applications. Starting with maths requirements is the biggest access barrier in AI education. Remove it.' },
+  { q:'A 15-year-old builds a facial recognition model trained only on light-skinned faces. They\'re excited to deploy it. What do you do?',sc:'',
+    opts:['Let them deploy it — testing in the real world will reveal any issues','Celebrate their technical achievement, then ask: "Before we share this — who might this work less well for? Why? What would happen if a school used this for security?"','Add a disclaimer footnote in their documentation','Tell them they need to start over with better data immediately'],
+    ans:1, exp:'Celebrate the skill FIRST, then introduce the ethical dimension as a genuine engineering challenge. The questions guide them to identify the problem themselves, understand the mechanism, and consider real-world harm. Bias awareness becomes a technical practice, not a lecture.' },
+  { q:'What is the most important thing every student should have after a 12-week Tresbontech AI curriculum?',sc:'',
+    opts:['A completed exam with a high score','A digital portfolio of 8–12 real AI projects they can demonstrate, explain, and articulate the practical value of to anyone','A printed certificate of completion','A list of AI concepts they have studied and definitions memorised'],
+    ans:1, exp:'A portfolio of real projects demonstrates mastery, creativity, and practical application. It\'s also infinitely more valuable for a student\'s future — scholarships, university applications, internships, and self-confidence all benefit from tangible, demonstrable work.' },
+];
+
+let qIdx = 0, qScore = 0;
+
+function renderQ() {
+  if (qIdx >= quizData.length) { showScore(); return; }
+  const q = quizData[qIdx];
+  const letters = ['A','B','C','D'];
+  const pct = (qIdx / quizData.length) * 100;
+  document.getElementById('quizWrap').innerHTML = `
+    <div class="qz-top">
+      <div class="qz-step">Question ${qIdx+1} of ${quizData.length}</div>
+      <div class="qz-score-display">Score: ${qScore} / ${qIdx}</div>
+    </div>
+    <div class="qz-progress"><div class="qz-fill" style="width:${pct}%"></div></div>
+    <div class="qz-q">${q.q}</div>
+    ${q.sc ? `<div class="qz-scenario">📌 ${q.sc}</div>` : ''}
+    <div class="qz-options">
+      ${q.opts.map((o,i) => `
+        <button class="qz-opt" onclick="answer(${i})">
+          <span class="qz-lbl">${letters[i]}</span>${o}
+        </button>
+      `).join('')}
+    </div>
+    <div class="qz-explanation" id="qzExp">
+      <div class="qz-exp-head" id="qzExpHead"></div>
+      <div class="qz-exp-body">${q.exp}</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="nextBtn" style="display:none" onclick="nextQ()">
+        ${qIdx < quizData.length - 1 ? 'Next Question →' : 'See My Results →'}
+      </button>
+    </div>
+  `;
+}
+
+function answer(i) {
+  const q = quizData[qIdx];
+  const opts = document.querySelectorAll('.qz-opt');
+  opts.forEach((b,idx) => {
+    b.disabled = true;
+    if (idx === q.ans) b.classList.add(i === q.ans ? 'correct' : 'reveal');
+    else if (idx === i) b.classList.add('wrong');
+  });
+  if (i === q.ans) qScore++;
+  const head = document.getElementById('qzExpHead');
+  head.textContent = i === q.ans ? '✓ Correct!' : '✕ Not quite.';
+  head.className = 'qz-exp-head ' + (i === q.ans ? 'correct' : 'wrong');
+  document.getElementById('qzExp').classList.add('show');
+  document.getElementById('nextBtn').style.display = 'inline-flex';
+}
+
+function nextQ() { qIdx++; renderQ(); }
+
+function showScore() {
+  const pct = Math.round(qScore / quizData.length * 100);
+  const circ = 2 * Math.PI * 50;
+  const offset = circ - (circ * pct / 100);
+  let title, sub, color;
+  if (pct >= 90) { title = 'AI Teaching Expert 🏆'; sub = 'Exceptional. You have a comprehensive grasp of both technical and pedagogical AI education. Your students are in excellent hands.'; color = '#52AF33'; }
+  else if (pct >= 75) { title = 'Strong Foundation 👍'; sub = 'Solid understanding with a few gaps. Review the Practical Framework and the Two Tracks sections to sharpen up.'; color = '#1E79F7'; }
+  else { title = 'Keep Learning 📚'; sub = 'Revisit the Roadmap, Practical Framework, and Myths sections. Every great AI tutor started exactly where you are.'; color = '#FFB800'; }
+  document.getElementById('quizWrap').innerHTML = `
+    <div class="score-screen">
+      <div class="score-ring-wrap">
+        <svg viewBox="0 0 120 120">
+          <circle class="score-track" cx="60" cy="60" r="50"/>
+          <circle class="score-fill" cx="60" cy="60" r="50"
+            stroke="${color}"
+            stroke-dasharray="${circ}"
+            stroke-dashoffset="${offset}"/>
+        </svg>
+        <div class="score-text">
+          <div class="score-num">${qScore}</div>
+          <div class="score-denom">/ ${quizData.length}</div>
+        </div>
+      </div>
+      <div class="score-title">${title}</div>
+      <p class="score-sub">${sub}</p>
+      <div class="btn-row" style="justify-content:center">
+        <button class="btn btn-primary" onclick="restart()">Retake Quiz</button>
+        <a href="checklist.html" class="btn btn-outline">Go to Checklist →</a>
+      </div>
+    </div>
+  `;
+}
+
+function restart() { qIdx = 0; qScore = 0; renderQ(); }
+document.addEventListener('DOMContentLoaded', renderQ);
+</script>
+</body>
+</html>

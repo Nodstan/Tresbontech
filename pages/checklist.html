@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session Checklist — Tresbontech Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/brand.css"><link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+<div id="mobileMenu" class="mobile-menu"></div>
+<header class="navbar" id="navbar"></header>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb"><a href="../index.html">Home</a><span>/</span>Session Checklist</div>
+    <h1 class="heading-xl page-hero-title">Tutor Session<br>Readiness Checklist</h1>
+    <p class="page-hero-sub">Use before, during, and after every AI session. Both tracks have their own 12-point preparation list. A Tresbontech AI session is only ready when all items are green.</p>
+  </div>
+</div>
+<section class="checklist-container">
+  <div class="container">
+    <div class="check-stats-bar">
+      <div class="cs-stat"><div class="cs-stat-num" id="checkA">0</div><div class="cs-stat-label">Track A Done</div></div>
+      <div class="cs-stat"><div class="cs-stat-num" id="checkB">0</div><div class="cs-stat-label">Track B Done</div></div>
+      <div class="cs-stat"><div class="cs-stat-num" id="checkAll">0</div><div class="cs-stat-label">Total / 24</div></div>
+    </div>
+    <div class="check-grid">
+      <div class="check-col" id="colA"></div>
+      <div class="check-col" id="colB"></div>
+    </div>
+    <div class="callout callout-blue" style="margin-top:32px">
+      <strong>After every session, ask yourself:</strong> Did every student produce something today? Did I use the word "practical" at least once — and mean it? Could a student explain what AI is to a friend using what they learned today? If yes to all three, you've delivered a Tresbontech-quality AI lesson.
+    </div>
+  </div>
+</section>
+<footer class="site-footer" id="siteFooter"></footer>
+<script src="../js/shared.js"></script>
+<script>
+const trackA = [
+  { title:'Coding environment verified', sub:'Replit/Colab link tested, libraries install correctly, no errors on load' },
+  { title:'Dataset ready and pre-cleaned', sub:'Students shouldn\'t spend >5 min on data loading issues' },
+  { title:'API keys secured and tested', sub:'Test keys work, rate limits won\'t block the session midway' },
+  { title:'Code scaffolds prepared', sub:'Starter code with clear TODO markers for students to complete' },
+  { title:'Extension challenge ready', sub:'A harder task prepared for students who finish early' },
+  { title:'Real-world context hook', sub:'One specific real product or system that uses today\'s concept' },
+  { title:'Peer review format defined', sub:'Clear criteria for how students will review each other\'s code' },
+  { title:'Portfolio submission step', sub:'Students know where to save/publish today\'s project' },
+  { title:'Debugging plan ready', sub:'Most likely error in today\'s concept identified, fix strategy ready' },
+  { title:'Ethics connection identified', sub:'One ethical consideration to raise from today\'s technical content' },
+  { title:'Post-session reflection question', sub:'"What would you change about this model?" or equivalent ready' },
+  { title:'Next session preview ready', sub:'A teaser of what they\'ll build next week to maintain excitement' },
+];
+const trackB = [
+  { title:'All tools tested in browser', sub:'Teachable Machine, ChatGPT etc. load correctly, no login issues' },
+  { title:'Example prompts prepared', sub:'3 demonstration prompts ready to show good vs bad prompting' },
+  { title:'Case study or story opener', sub:'A real AI story relevant to students\' lives to open with' },
+  { title:'"Wow moment" in first 10 min', sub:'Something that produces visible, impressive output immediately' },
+  { title:'Vocabulary list prepared', sub:'5 key words with simple definitions accessible to non-coders' },
+  { title:'Bias discussion anchor', sub:'A specific, real example of AI bias relevant to this age group' },
+  { title:'Project brief is student-led', sub:'Students can choose theme/topic — ownership built in from start' },
+  { title:'"So What?" template ready', sub:'Students know they need to complete the "I built X" sentence' },
+  { title:'Presentation format defined', sub:'How students will share their project (demo, slides, video, report)' },
+  { title:'Parent communication note', sub:'Brief update to share with parents about what was built today' },
+  { title:'Misconception watch-list', sub:'Most common misunderstanding for today\'s topic identified' },
+  { title:'Portfolio update step included', sub:'Students add today\'s project to their growing portfolio' },
+];
+
+const checkedA = new Set(), checkedB = new Set();
+
+function renderCol(items, set, colId, label, color, key) {
+  const total = items.length;
+  document.getElementById(colId).innerHTML = `
+    <div class="check-col-head">
+      <div class="check-col-title" style="color:${color}">${label}</div>
+      <div class="check-col-sub">Check items as you prepare</div>
+      <div class="check-progress"><div class="check-prog-fill" id="prog-${key}" style="width:0%"></div></div>
+    </div>
+    ${items.map((item,i) => `
+      <div class="check-item" id="ci-${key}-${i}" onclick="toggleCheck('${key}',${i})">
+        <div class="check-box" id="cb-${key}-${i}"></div>
+        <div class="check-label">
+          <div class="check-label-title">${item.title}</div>
+          <div class="check-label-sub">${item.sub}</div>
+        </div>
+      </div>
+    `).join('')}
+  `;
+}
+
+function toggleCheck(key, i) {
+  const set = key === 'A' ? checkedA : checkedB;
+  const item = document.getElementById(`ci-${key}-${i}`);
+  const box = document.getElementById(`cb-${key}-${i}`);
+  if (set.has(i)) { set.delete(i); item.classList.remove('done'); box.textContent = ''; }
+  else { set.add(i); item.classList.add('done'); box.textContent = '✓'; }
+  const prog = document.getElementById(`prog-${key}`);
+  if (prog) prog.style.width = `${(set.size / 12) * 100}%`;
+  document.getElementById('checkA').textContent = checkedA.size;
+  document.getElementById('checkB').textContent = checkedB.size;
+  document.getElementById('checkAll').textContent = checkedA.size + checkedB.size;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderCol(trackA, checkedA, 'colA', '💻 Track A — Code-First Session', '#1E79F7', 'A');
+  renderCol(trackB, checkedB, 'colB', '🌱 Track B — Concept-First Session', '#c08800', 'B');
+});
+</script>
+</body>
+</html>

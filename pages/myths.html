@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Myths & Fixes — Tresbontech Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/brand.css"><link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+<div id="mobileMenu" class="mobile-menu"></div>
+<header class="navbar" id="navbar"></header>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb"><a href="../index.html">Home</a><span>/</span>Myths & Fixes</div>
+    <h1 class="heading-xl page-hero-title">AI Education<br>Myths, Busted</h1>
+    <p class="page-hero-sub">The most common misconceptions tutors, parents, and students bring into AI education. Know them, bust them confidently, and replace them with the Tresbontech truth. Click each to expand.</p>
+  </div>
+</div>
+<section class="myths-container">
+  <div class="container">
+    <div class="callout callout-red" style="margin-bottom:32px">
+      <strong>Why this matters:</strong> Unchallenged myths about AI education are the #1 reason students opt out before they begin, parents pull engagement, and tutors limit their own ambitions. Know these 7 myths by heart.
+    </div>
+    <div class="myths-list" id="mythsList"></div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="quiz.html" class="btn btn-primary btn-lg">Test Your Knowledge →</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer" id="siteFooter"></footer>
+<script src="../js/shared.js"></script>
+<script>
+const myths = [
+  { q:'"You need to understand complex maths to learn AI"',
+    myth:'AI education requires calculus, linear algebra, and statistics before you can begin.',
+    truth:'Middle-school maths — proportions, averages, and basic probability — is sufficient to use, understand, and build real AI projects for the first year. The deeper maths comes eventually, but students should be using AI for months before encountering it. Starting with maths requirements is the biggest access barrier in AI education. Remove it.' },
+  { q:'"Track B students are taking the easy way out"',
+    myth:'No-code AI education is less rigorous or less valuable than coded AI education.',
+    truth:'Prompt engineering, critical evaluation of AI outputs, AI ethics analysis, and workflow automation are genuinely high-value professional skills in 2025. Many AI Product Managers earn more than AI engineers and write zero code. Track B is not easier — it\'s differently skilled. Both tracks are rigorous. The skills just look different.' },
+  { q:'"AI will replace these students\' jobs, so why teach it?"',
+    myth:'Teaching kids AI is training them for a future where their skills are obsolete.',
+    truth:'Every technological revolution creates more jobs than it eliminates — and the new jobs require people who understand the technology. Students who understand AI will direct it, evaluate it, fix it, and innovate with it. Students who don\'t understand it will be directed by those who do. The choice is who controls the technology.' },
+  { q:'"You need expensive hardware and paid API credits to teach AI"',
+    myth:'AI education requires significant budget for hardware, software, and API access.',
+    truth:'Teachable Machine, ML5.js, ChatGPT (free tier), HuggingFace (free tier), Google Colab (free GPU), and Replit (free IDE) together provide a complete AI education stack at zero cost. Start with these. Paid tools only when students outgrow them — which takes months.' },
+  { q:'"AI ethics is a soft topic — do the technical skills first"',
+    myth:'Ethics can be saved for later, after students have learned the technical fundamentals.',
+    truth:'Ethical thinking IS a technical skill in AI. A model trained on biased data produces biased outputs — that\'s a technical failure caused by an ethical oversight. Students who don\'t learn ethics alongside technical skills build dangerous systems. Ethics belongs in Week 1, not last week.' },
+  { q:'"10-year-olds are too young for real AI education"',
+    myth:'Meaningful AI education should only begin at 14+ when abstract thinking is developed.',
+    truth:'A 10-year-old who trains an image classifier, understands it learned from examples, and can explain why it made a mistake has a more accurate mental model of ML than most adults. Concepts scale. Tools scale. The right entry point is age-appropriate, not age-limiting. Start them early.' },
+  { q:'"Students should learn all the theory before touching tools"',
+    myth:'Conceptual understanding must come before practical experience in AI education.',
+    truth:'Research in constructivist learning (Piaget, Papert) consistently shows that hands-on experience followed by conceptual explanation produces deeper understanding than the reverse. Let them train the model. Then explain why it worked. Experience first, theory second. Always.' },
+];
+
+function renderMyths() {
+  document.getElementById('mythsList').innerHTML = myths.map((m,i) => `
+    <div class="myth-item" id="myth${i}">
+      <div class="myth-head" onclick="document.getElementById('myth${i}').classList.toggle('open')">
+        <div class="myth-icon">🚫</div>
+        <div class="myth-q">${m.q}</div>
+        <div class="myth-toggle">▼</div>
+      </div>
+      <div class="myth-body">
+        <div class="myth-inner">
+          <div class="myth-wrong">
+            <div class="myth-wrong-label">The Myth</div>
+            <p>${m.myth}</p>
+          </div>
+          <div class="myth-right">
+            <div class="myth-right-label">The Truth</div>
+            <p>${m.truth}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+document.addEventListener('DOMContentLoaded', renderMyths);
+</script>
+</body>
+</html>

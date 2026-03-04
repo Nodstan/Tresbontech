@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical AI Projects — Tresbontech Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/brand.css">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+<div id="mobileMenu" class="mobile-menu"></div>
+<header class="navbar" id="navbar"></header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb"><a href="../index.html">Home</a><span>/</span>Practical Projects</div>
+    <h1 class="heading-xl page-hero-title">20+ Practical<br>AI Projects</h1>
+    <p class="page-hero-sub">Every project produces a real output students can use, share, or build on. Filter by track or difficulty. Each project includes the "So What?" outcome students must document.</p>
+    <div class="page-hero-meta">
+      <div class="phm-item"><span class="phm-dot"></span>Portfolio-Ready</div>
+      <div class="phm-item"><span class="phm-dot" style="background:#FFB800"></span>Real Outputs</div>
+      <div class="phm-item"><span class="phm-dot" style="background:#52AF33"></span>Both Tracks Covered</div>
+    </div>
+  </div>
+</div>
+
+<section class="projects-container">
+  <div class="container">
+    <div class="callout callout-yellow">
+      <strong>The Portfolio Rule:</strong> Every completed project goes into the student's digital portfolio. After 12 weeks, they should be able to show 8–12 real AI projects to anyone — a parent, a scholarship committee, a future employer. If they can't show it, it wasn't practical enough.
+    </div>
+    <div style="height:28px"></div>
+    <div class="projects-filter">
+      <button class="pf-btn active" onclick="filterProj('all',this)">All Projects</button>
+      <button class="pf-btn" onclick="filterProj('code',this)">💻 Track A</button>
+      <button class="pf-btn" onclick="filterProj('nocode',this)">🌱 Track B</button>
+      <button class="pf-btn" onclick="filterProj('both',this)">✨ Both Tracks</button>
+      <button class="pf-btn" onclick="filterProj('1',this)">⚡ Starter (1)</button>
+      <button class="pf-btn" onclick="filterProj('2',this)">🔵 Intermediate (2)</button>
+      <button class="pf-btn" onclick="filterProj('3',this)">🔥 Advanced (3+)</button>
+    </div>
+    <div class="projects-full-grid" id="projectsGrid"></div>
+  </div>
+</section>
+
+<footer class="site-footer" id="siteFooter"></footer>
+<script src="../js/shared.js"></script>
+<script>
+const projects = [
+  { emoji:'🖼', title:'Image Classifier', desc:'Train a model to tell apart 3 things you choose using Teachable Machine. Zero code. Real ML in 10 minutes. Students keep a shareable link. The perfect first project.', track:'nocode', diff:1, color:'#FFB800', tags:['Track B','Teachable Machine','15 min'] },
+  { emoji:'💬', title:'Custom AI Chatbot', desc:'Use the OpenAI API + Python to build a chatbot with a custom personality — study buddy, cooking assistant, or a fictional character from a book they love.', track:'code', diff:2, color:'#1E79F7', tags:['Track A','Python','OpenAI API'] },
+  { emoji:'😊', title:'Emotion Detector', desc:'Detect happy vs sad vs neutral from webcam using face-api.js. Runs entirely in the browser — no backend, no server, no cost. Share with a single URL.', track:'both', diff:2, color:'#14B8A6', tags:['Both Tracks','JavaScript','face-api.js'] },
+  { emoji:'🎵', title:'Mood Playlist Curator', desc:'Describe your mood to ChatGPT with a carefully engineered prompt system and get a perfect playlist with reasoning. A masterclass in multi-step prompt design.', track:'nocode', diff:1, color:'#FFB800', tags:['Track B','ChatGPT','Prompting'] },
+  { emoji:'📰', title:'Fake News Detector', desc:'Train a text classifier to distinguish real from fake news headlines using a public dataset. Introduction to NLP concepts with scikit-learn. A genuine social good project.', track:'code', diff:3, color:'#1E79F7', tags:['Track A','NLP','scikit-learn'] },
+  { emoji:'🌍', title:'AI Ethics Case File', desc:'Research a real AI scandal (facial recognition bias, Amazon hiring tool), document the harm, identify the data problem, and propose a technical + policy fix. Becomes a presentation.', track:'nocode', diff:2, color:'#F03009', tags:['Track B','Research','Ethics'] },
+  { emoji:'🌱', title:'Plant Disease Identifier', desc:'Train a Teachable Machine model on 3 plant diseases using Google Images. A real agricultural AI problem. Package as a shareable web tool a farmer could actually use.', track:'both', diff:2, color:'#52AF33', tags:['Both Tracks','Image ML','Agriculture'] },
+  { emoji:'📊', title:'Data Bias Audit', desc:'Take a public dataset (crime statistics, hiring data), analyse it for demographic skew using Pandas, and write a "bias report" with visualisations. Real data science methodology.', track:'code', diff:3, color:'#1E79F7', tags:['Track A','Pandas','Fairness'] },
+  { emoji:'✍️', title:'AI Writing Assistant', desc:'Engineer a prompt that acts as a professional editor for a specific writing type (essays, emails, social media). Test on 5 real examples and document measurable improvements.', track:'nocode', diff:1, color:'#FFB800', tags:['Track B','Prompting','Writing'] },
+  { emoji:'🤖', title:'AI Study Buddy', desc:'Build a Python script using an AI API that quizzes you on any subject — you feed it notes, it generates questions, marks your answers, gives hints, and tracks your score.', track:'code', diff:2, color:'#1E79F7', tags:['Track A','Python','Education'] },
+  { emoji:'🎨', title:'AI Art Director', desc:'Design a prompt system for generating consistent artwork in a chosen style. Document your "prompt formula" and apply it to 10 generated images for a shareable mini gallery.', track:'nocode', diff:1, color:'#8B5CF6', tags:['Track B','Image Generation','Design'] },
+  { emoji:'🏠', title:'Recommendation Engine', desc:'Build a simple collaborative filtering recommendation system in Python — given what you liked, predict what else you\'d enjoy. A mini Netflix algorithm from scratch.', track:'code', diff:4, color:'#1E79F7', tags:['Track A','ML','Recommender Systems'] },
+  { emoji:'🔊', title:'Voice Command Classifier', desc:'Record 3 custom voice commands, train an audio model with Teachable Machine\'s audio feature, and build a simple browser page that responds to your voice in real time.', track:'both', diff:2, color:'#14B8A6', tags:['Both Tracks','Audio ML','Browser'] },
+  { emoji:'📱', title:'AI App Audit', desc:'Pick 5 apps from your phone. For each: identify where AI is used, what data it needs, who benefits, and one potential risk. Becomes a professional-looking presentation.', track:'nocode', diff:1, color:'#FFB800', tags:['Track B','Critical Thinking','Research'] },
+  { emoji:'🧬', title:'Medical Image Classifier', desc:'Use a public chest X-ray dataset to train a classifier distinguishing normal from pneumonia X-rays. Discuss accuracy, false positives, and the ethics of medical AI decisions.', track:'code', diff:4, color:'#F03009', tags:['Track A','Computer Vision','Healthcare AI'] },
+  { emoji:'🏆', title:'AI Debate Judge', desc:'Prompt-engineer an AI to judge a debate: feed it two arguments on a controversial topic and have it evaluate logic, evidence, and persuasion. Then challenge its judgment. Critical thinking at its best.', track:'both', diff:2, color:'#8B5CF6', tags:['Both Tracks','Prompting','Critical Thinking'] },
+  { emoji:'💰', title:'Price Predictor', desc:'Download a simple pricing dataset (houses, phones, cars), train a regression model in sklearn, and build a simple price estimator web interface using Streamlit.', track:'code', diff:3, color:'#1E79F7', tags:['Track A','Regression','Streamlit'] },
+  { emoji:'🗺', title:'Neighbourhood AI Report', desc:'Use AI tools (ChatGPT for text, image generators for visuals) to create a professional report about your local area — what problems could AI solve in your community?', track:'nocode', diff:2, color:'#FFB800', tags:['Track B','Community','Applied AI'] },
+  { emoji:'🎤', title:'Sentiment Analyser', desc:'Build a tool that reads tweets or product reviews and classifies sentiment as positive/negative/neutral. Use TextBlob or HuggingFace transformers for a professional result.', track:'code', diff:2, color:'#1E79F7', tags:['Track A','NLP','Sentiment'] },
+  { emoji:'🌐', title:'AI Portfolio Website', desc:'Use AI tools throughout — ChatGPT for copy, DALL-E for visuals, GitHub Copilot for code — to build a personal portfolio website. Document which parts AI helped with and how you directed it.', track:'both', diff:2, color:'#14B8A6', tags:['Both Tracks','Applied AI','Portfolio'] },
+];
+
+function renderProjects(filter = 'all') {
+  document.getElementById('projectsGrid').innerHTML = projects.map(p => {
+    const trackLabel = p.track === 'code' ? '💻 Track A' : p.track === 'nocode' ? '🌱 Track B' : '✨ Both';
+    const trackClass = p.track === 'code' ? 'badge-blue' : p.track === 'nocode' ? 'badge-yellow' : 'badge-green';
+    const pips = [1,2,3,4].map(n => `<div class="pfc-pip${n<=p.diff?' on':''}"></div>`).join('');
+    const diffLabel = p.diff === 1 ? 'Starter' : p.diff === 2 ? 'Intermediate' : p.diff === 3 ? 'Advanced' : 'Expert';
+    let hidden = false;
+    if (filter === 'code') hidden = p.track !== 'code';
+    else if (filter === 'nocode') hidden = p.track !== 'nocode';
+    else if (filter === 'both') hidden = p.track !== 'both';
+    else if (filter === '1') hidden = p.diff !== 1;
+    else if (filter === '2') hidden = p.diff !== 2;
+    else if (filter === '3') hidden = p.diff < 3;
+    return `
+      <div class="pfc${hidden?' hidden':''}" style="--pc-color:${p.color}">
+        <div class="pfc-emoji">${p.emoji}</div>
+        <div class="pfc-title">${p.title}</div>
+        <p class="pfc-desc">${p.desc}</p>
+        <div class="pfc-tags">
+          <span class="badge ${trackClass}">${trackLabel}</span>
+          ${p.tags.slice(1).map(t=>`<span class="badge badge-gray">${t}</span>`).join('')}
+        </div>
+        <div class="pfc-diff">
+          <div class="pfc-pips">${pips}</div>
+          <span class="pfc-diff-label">${diffLabel} · ${p.diff}/4</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function filterProj(type, btn) {
+  document.querySelectorAll('.pf-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProjects(type);
+}
+
+document.addEventListener('DOMContentLoaded', () => renderProjects());
+</script>
+</body>
+</html>

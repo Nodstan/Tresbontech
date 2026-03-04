@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12-Week AI Roadmap — Tresbontech Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/brand.css">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+<div id="mobileMenu" class="mobile-menu"></div>
+<header class="navbar" id="navbar"></header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb">
+      <a href="../index.html">Home</a><span>/</span>12-Week Roadmap
+    </div>
+    <h1 class="heading-xl page-hero-title">The 12-Week<br>AI Curriculum</h1>
+    <p class="page-hero-sub">A structured progression that works for both tracks simultaneously — differentiated activities for each, shared concepts for all. Click any week to expand the full session plan.</p>
+    <div class="page-hero-meta">
+      <div class="phm-item"><span class="phm-dot"></span>6 Topic Modules</div>
+      <div class="phm-item"><span class="phm-dot" style="background:#FFB800"></span>Dual-Track Activities</div>
+      <div class="phm-item"><span class="phm-dot" style="background:#52AF33"></span>Real Output Every Session</div>
+    </div>
+  </div>
+</div>
+
+<section class="roadmap-container">
+  <div class="container">
+    <div class="callout callout-blue">
+      <strong>Delivery principle:</strong> Every week has a <em>shared concept</em> both tracks explore together, then diverges into track-specific practice. This builds community across learner types while respecting where each student is.
+    </div>
+    <div style="height:32px"></div>
+    <div class="roadmap-list" id="roadmapList"></div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="projects.html" class="btn btn-primary btn-lg" style="margin-right:14px">See All Projects →</a>
+      <a href="tools.html" class="btn btn-outline btn-lg">Explore Tools</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="siteFooter"></footer>
+<script src="../js/shared.js"></script>
+<script>
+const roadmapData = [
+  { week:'WK 01–02', color:'#1E79F7', title:"What Actually Is AI?", short:'Demystifying the buzzword for real',
+    overview:"Before a single model is trained or a line of code is written, every student needs an accurate mental model of what AI is and isn't. This week corrects Hollywood-driven misconceptions and builds a grounded foundation.",
+    trackA:['History of AI: symbolic AI → machine learning → deep learning','Types of ML: supervised, unsupervised, reinforcement learning','Python: explore a pre-trained model with 3 lines of code','Discussion: where is AI already in apps we use?'],
+    trackB:['AI vs Not AI card sort game (both tracks do this together)','Watch visual explainers: "How machines learn"','Use Teachable Machine: train first image classifier in 10 min','Write a 1-paragraph "What AI is" explainer for a 6-year-old'],
+    output:"Track A: Python script that queries an AI API. Track B: Trained image classifier anyone can use via shared link.",
+    tip:"The card sort game works great for BOTH tracks as an opener. Do it together before splitting. It builds community and surfaces misconceptions fast." },
+  { week:'WK 03–04', color:'#FFB800', title:'Data: The Fuel of AI', short:'Why data quality determines everything',
+    overview:"AI is only as good as the data it learned from. This is the most important foundational concept — and the most overlooked in youth AI education. Students who understand data become critical AI thinkers.",
+    trackA:['Load and explore a real dataset with Pandas','Data types, missing values, cleaning basics','Train a sklearn classifier on clean vs dirty data — see the difference in accuracy','Visualise results with matplotlib'],
+    trackB:['Collect your own dataset: 30 images in 3 categories, train in Teachable Machine','Discuss: what happens when training data is biased?','Activity: "Spot the Bad Data" — identify flawed data in 5 AI systems','Write: "If we trained on only Nigerian news photos, what would the AI learn?"'],
+    output:"Track A: Trained sklearn model with accuracy score comparison (clean vs dirty). Track B: Personal image classifier + bias analysis worksheet.",
+    tip:"The bias discussion hits hardest with real, current examples — facial recognition failures, hiring algorithm scandals. Have 2–3 ready." },
+  { week:'WK 05–06', color:'#52AF33', title:'Prompt Engineering', short:'The most practical AI skill of our era',
+    overview:"Whether students ever write code or not, prompt engineering is the universal AI skill of the next decade. Done well, it's genuinely a form of programming — just in natural language. Track B students often become MORE advanced than Track A here.",
+    trackA:['Structured prompting with OpenAI API: system prompts, user prompts, parameters','Chain-of-thought prompting in code','Few-shot vs zero-shot prompting comparison','Build: a custom AI assistant with a system prompt using Python'],
+    trackB:['The 5 elements of a great prompt: Role, Context, Task, Format, Constraints','Prompt challenges: same task, 5 different prompts, compare outputs','Build: a "prompt recipe" for something they care about (homework, creative writing)','Evaluate: identify when AI gave a bad answer and why the prompt caused it'],
+    output:"Track A: Python-based chatbot with custom personality via system prompt. Track B: \"Prompt Recipe Book\" with 8+ tested, documented prompts for real use cases.",
+    tip:"Prompt engineering is where many Track B students experience their biggest confidence boost. Celebrate their results loudly — this is a real, professional skill." },
+  { week:'WK 07–08', color:'#F03009', title:'AI Ethics & Critical Thinking', short:'Building responsible AI citizens',
+    overview:"Non-negotiable for every AI learner regardless of track. A technically brilliant student who doesn't think critically about AI fairness is a liability to the field. Ethics is not a soft topic — it's a technical one.",
+    trackA:['What is algorithmic bias? Real examples with data','Fairness metrics: demographic parity, equal opportunity — code examples','Use IBM AI Fairness 360 to analyse a dataset for bias','Write code to test your own previous model for demographic fairness'],
+    trackB:['Case studies: Amazon hiring tool, COMPAS recidivism algorithm, facial recognition failures','The 5 questions to ask about any AI system (who made it? what data? who benefits? who\'s harmed? who decides?)','Deepfake detection activity: real or AI-generated?','Design a "fair AI policy" for an imaginary school system'],
+    output:"Track A: A bias audit report on a real dataset with findings and recommendations. Track B: An \"AI Ethics Framework\" one-pager they designed and presented.",
+    tip:"This week often generates the deepest conversation. Don't rush it. Let the discussion breathe. Ethics debates are some of the most valuable learning in AI education." },
+  { week:'WK 09–10', color:'#8B5CF6', title:'Build Something Real', short:'Project sprint — all concepts applied',
+    overview:"The most important two weeks of the curriculum. Students build a complete AI project from scratch, applying everything learned. This is the Tresbontech portfolio centrepiece. Tutors facilitate, not direct — this is student-led.",
+    trackA:['Choose a project: sentiment analyser, image classifier, recommendation system, or chatbot','Full development cycle: data → training → testing → interface → deploy','Peer code review session with structured feedback criteria','Write a 1-page technical writeup of their project'],
+    trackB:['Choose a project: AI-designed magazine, AI playlist curator, AI study guide, or social media analyser','Build using no-code tools + prompt engineering','Create presentation: problem solved, tool used, how it works, ethical consideration','Demo to a real audience (parents, younger students, another class)'],
+    output:"A portfolio-ready project with documentation. Both tracks present to a real audience. This is the Tresbontech showcase moment.",
+    tip:"The demo audience is critical. When students present to real humans, quality rises dramatically. Even a Zoom call with parents counts. Book the audience before the sprint starts." },
+  { week:'WK 11–12', color:'#14B8A6', title:'AI Careers & The Future', short:'Where AI is going and where they fit',
+    overview:"Close the curriculum with inspiration and orientation. Students should leave knowing: which careers involve AI, what skills they've already built, and what their next learning step is. This is motivation fuel for the year ahead.",
+    trackA:['Career paths: ML Engineer, AI researcher, Data Scientist, AI Product Manager','Essential next skills: deep learning intro, NLP, computer vision','Build a personal "AI learning roadmap" — what to learn next and how','Portfolio: publish projects on GitHub/personal site with documentation'],
+    trackB:['Career paths: AI ethicist, prompt engineer, AI product designer, AI educator, policy maker','Discussion: which jobs AI might change vs create (evidence-based, not fear-based)','Design "AI future self" — what they\'ll build in 3 years','Portfolio: write 3 sentences about each project for a professional portfolio page'],
+    output:"A personal AI learning roadmap and published, shareable portfolio that can open doors for scholarships, university applications, and internships.",
+    tip:"Invite a real AI professional (remotely, even 20 minutes) for this week. Nothing motivates like seeing someone who's doing it. LinkedIn cold messages work surprisingly well." },
+];
+
+function renderRoadmap() {
+  const el = document.getElementById('roadmapList');
+  el.innerHTML = roadmapData.map((item, i) => `
+    <div class="rm-item">
+      <div class="rm-node" style="--rm-color:${item.color};background:${item.color}">${i+1}</div>
+      <div class="rm-card" id="rm${i}" style="--rm-color:${item.color}">
+        <div class="rm-head" onclick="toggleRM(${i})">
+          <span class="rm-week">${item.week}</span>
+          <div class="rm-info">
+            <div class="rm-title">${item.title}</div>
+            <div class="rm-short">${item.short}</div>
+          </div>
+          <div class="rm-toggle">▼</div>
+        </div>
+        <div class="rm-body">
+          <div class="rm-body-inner">
+            <div class="rm-track-panel" style="grid-column:1/-1;background:#f8fafe;border-color:rgba(30,121,247,0.1);margin-bottom:4px">
+              <div class="rm-track-label" style="color:#888;margin-bottom:6px">OVERVIEW</div>
+              <p style="font-size:0.85rem;color:#5a5a7a;line-height:1.7">${item.overview}</p>
+            </div>
+            <div class="rm-track-panel">
+              <div class="rm-track-label a">💻 Track A — Code Path</div>
+              <ul class="rm-track-items">${item.trackA.map(t=>`<li>${t}</li>`).join('')}</ul>
+            </div>
+            <div class="rm-track-panel">
+              <div class="rm-track-label b">🌱 Track B — Concept Path</div>
+              <ul class="rm-track-items">${item.trackB.map(t=>`<li>${t}</li>`).join('')}</ul>
+            </div>
+            <div class="rm-output-row">
+              <div class="rm-output-label">Session Output (Both Tracks)</div>
+              <div class="rm-output-text">${item.output}</div>
+            </div>
+            <div class="rm-tip-row">
+              <div class="rm-tip-label">💡 Tutor Tip</div>
+              <div class="rm-tip-text">${item.tip}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+function toggleRM(i) { document.getElementById('rm'+i).classList.toggle('open'); }
+document.addEventListener('DOMContentLoaded', renderRoadmap);
+</script>
+</body>
+</html>

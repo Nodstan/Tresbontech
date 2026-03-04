@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Tracks Framework — Tresbontech Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/brand.css"><link rel="stylesheet" href="../css/pages.css">
+<style>
+.tracks-page-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 40px; }
+.tpg-card { border-radius: 20px; overflow: hidden; border: 1px solid var(--border); }
+.tpg-head { padding: 32px; }
+.tpg-head.blue { background: var(--blue); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Crect x='8' y='8' width='12' height='4' rx='1' fill='%23ffffff' opacity='.07'/%3E%3Crect x='8' y='14' width='4' height='12' rx='1' fill='%23ffffff' opacity='.07'/%3E%3Crect x='38' y='8' width='12' height='4' rx='1' fill='%23ffffff' opacity='.07'/%3E%3Crect x='46' y='14' width='4' height='12' rx='1' fill='%23ffffff' opacity='.07'/%3E%3Crect x='8' y='38' width='4' height='12' rx='1' fill='%23ffffff' opacity='.07'/%3E%3Crect x='8' y='46' width='12' height='4' rx='1' fill='%23ffffff' opacity='.07'/%3E%3Crect x='38' y='46' width='12' height='4' rx='1' fill='%23ffffff' opacity='.07'/%3E%3Crect x='46' y='38' width='4' height='12' rx='1' fill='%23ffffff' opacity='.07'/%3E%3C/svg%3E"); }
+.tpg-head.azure { background: var(--azure); }
+.tpg-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 10px; }
+.tpg-head.blue .tpg-label { color: rgba(255,255,255,0.6); }
+.tpg-head.azure .tpg-label { color: var(--blue); }
+.tpg-title { font-size: 1.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; margin-bottom: 10px; }
+.tpg-head.blue .tpg-title { color: white; }
+.tpg-head.azure .tpg-title { color: var(--black); }
+.tpg-sub { font-size: 0.88rem; line-height: 1.7; font-weight: 400; }
+.tpg-head.blue .tpg-sub { color: rgba(255,255,255,0.75); }
+.tpg-head.azure .tpg-sub { color: var(--text-mid); }
+.tpg-body { background: white; padding: 28px; }
+.tpg-section-title { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); margin-bottom: 12px; }
+.tpg-items { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.tpg-item { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
+.tpg-item-title { font-size: 0.85rem; font-weight: 700; margin-bottom: 2px; }
+.tpg-item-sub { font-size: 0.76rem; color: var(--text-light); font-weight: 400; }
+.who-box { background: var(--azure); border-radius: 10px; padding: 14px 16px; font-size: 0.83rem; line-height: 1.65; color: var(--text-mid); }
+.who-box strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 0.82rem; text-transform: uppercase; font-family: 'DM Mono', monospace; letter-spacing: 1px; font-size: 0.62rem; }
+.migration-band { background: var(--black); border-radius: 16px; padding: 32px; margin: 32px 0; display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+.migration-text { flex: 1; }
+.migration-title { font-size: 1.2rem; font-weight: 900; text-transform: uppercase; color: white; margin-bottom: 8px; letter-spacing: -0.3px; }
+.migration-sub { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
+.migration-arrow { font-size: 3rem; color: var(--blue); flex-shrink: 0; }
+@media (max-width: 768px) { .tracks-page-grid { grid-template-columns: 1fr; } .migration-band { flex-direction: column; text-align: center; } }
+</style>
+</head>
+<body>
+<div id="mobileMenu" class="mobile-menu"></div>
+<header class="navbar" id="navbar"></header>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb"><a href="../index.html">Home</a><span>/</span>Two Tracks</div>
+    <h1 class="heading-xl page-hero-title">Two Tracks,<br>One Destination</h1>
+    <p class="page-hero-sub">Every student arrives at AI education from a different starting point. Neither track is better — they require different entry doors. Tresbontech tutors read which track a student belongs to within the first session.</p>
+  </div>
+</div>
+<section style="padding:60px 0 80px;background:white">
+  <div class="container">
+    <div class="callout callout-blue" style="margin-bottom:36px">
+      <strong>The placement rule:</strong> If a student can write a function independently and has built at least one small project, they are Track A. If they cannot, they are Track B. Assess this in the first session through a 5-minute conversation — not a test. Never make a student feel "behind" for being in Track B.
+    </div>
+    <div class="tracks-page-grid">
+      <div class="tpg-card">
+        <div class="tpg-head blue">
+          <div class="tpg-label">Track A — Code First</div>
+          <div class="tpg-title">Already Writes Code</div>
+          <p class="tpg-sub">Students with at least 3 months of Python or similar. They can write functions independently, have built small projects, and ask "how does this work?" before "what can this do?"</p>
+        </div>
+        <div class="tpg-body">
+          <div class="tpg-section-title">What they learn</div>
+          <div class="tpg-items">
+            <div class="tpg-item"><div class="tpg-item-title">Python for AI</div><div class="tpg-item-sub">NumPy, Pandas, scikit-learn — real data science tools</div></div>
+            <div class="tpg-item"><div class="tpg-item-title">Model Training Concepts</div><div class="tpg-item-sub">How machines learn from data — theory meets code</div></div>
+            <div class="tpg-item"><div class="tpg-item-title">APIs & Pre-Built Models</div><div class="tpg-item-sub">OpenAI, HuggingFace, Google AI — real production tools</div></div>
+            <div class="tpg-item"><div class="tpg-item-title">Build & Deploy</div><div class="tpg-item-sub">Simple web apps using AI APIs with Streamlit</div></div>
+            <div class="tpg-item"><div class="tpg-item-title">Prompt Engineering in Code</div><div class="tpg-item-sub">Structured prompting inside programs — system prompts, few-shot</div></div>
+            <div class="tpg-item"><div class="tpg-item-title">Evaluation & Ethics in Code</div><div class="tpg-item-sub">Testing models for bias — technical fairness metrics</div></div>
+          </div>
+          <div class="who-box"><strong>Who they are</strong>Students who have completed at least 3 months of Python, Scratch (transitioning to text), or any text-based coding. They can write a function without help. They debug independently. They get frustrated when things are too easy.</div>
+        </div>
+      </div>
+      <div class="tpg-card">
+        <div class="tpg-head azure">
+          <div class="tpg-label">Track B — Concept First</div>
+          <div class="tpg-title">New to Coding</div>
+          <p class="tpg-sub">Zero to minimal coding experience. Entry through AI concepts, ethics, and no-code tools. They learn to work powerfully with AI before learning to build it — and this is a completely valid, increasingly valuable skill set.</p>
+        </div>
+        <div class="tpg-body">
+          <div class="tpg-section-title">What they learn</div>
+          <div class="tpg-items">
+            <div class="tpg-item"><div class="tpg-item-title">What Is AI?</div><div class="tpg-item-sub">Demystifying myths vs reality — accurate mental models first</div></div>
+            <div class="tpg-item"><div class="tpg-item-title">How AI Learns</div><div class="tpg-item-sub">Training data, patterns, prediction — concepts without code</div></div>
+            <div class="tpg-item"><div class="tpg-item-title">No-Code AI Tools</div><div class="tpg-item-sub">Teachable Machine, ML5.js, ChatGPT — real AI, zero code</div></div>
+            <div class="tpg-item"><div class="tpg-item-title">AI in Everyday Life</div><div class="tpg-item-sub">Spotting AI in apps students already use every day</div></div>
+            <div class="tpg-item"><div class="tpg-item-title">Prompt Engineering</div><div class="tpg-item-sub">Getting excellent, reproducible results from AI tools</div></div>
+            <div class="tpg-item"><div class="tpg-item-title">Ethics & Critical Thinking</div><div class="tpg-item-sub">Bias, fairness, misinformation — responsible AI citizenship</div></div>
+          </div>
+          <div class="who-box" style="background:white;border:1px solid var(--border)"><strong>Who they are</strong>Students with zero to minimal coding experience. Often creative thinkers, writers, or artists. They ask "what can this do?" and "is this fair?" They respond strongly to real-world application and visible results over syntax and debugging.</div>
+        </div>
+      </div>
+    </div>
+    <div class="migration-band">
+      <div class="migration-text">
+        <div class="migration-title">The Migration Journey</div>
+        <p class="migration-sub">Many students will start in Track B and migrate to Track A over 6–12 months as their confidence grows. This is the ideal journey — understand AI conceptually first, then build with it. Never rush this. The migration happens naturally when students become curious about "how" rather than just "what." That curiosity is the signal.</p>
+      </div>
+      <div class="migration-arrow">🌱→💻</div>
+    </div>
+    <div style="text-align:center;margin-top:8px">
+      <a href="roadmap.html" class="btn btn-primary btn-lg" style="margin-right:14px">View the Roadmap →</a>
+      <a href="projects.html" class="btn btn-outline btn-lg">See Projects</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer" id="siteFooter"></footer>
+<script src="../js/shared.js"></script>
+</body>
+</html>

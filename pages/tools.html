@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tools & Platforms — Tresbontech Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/brand.css"><link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+<div id="mobileMenu" class="mobile-menu"></div>
+<header class="navbar" id="navbar"></header>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb"><a href="../index.html">Home</a><span>/</span>Tools & Platforms</div>
+    <h1 class="heading-xl page-hero-title">18 AI Tools<br>for Teaching</h1>
+    <p class="page-hero-sub">Every tool matched to track, age, and learning objective. Always test tools before the session — a broken link kills momentum instantly.</p>
+  </div>
+</div>
+<section class="tools-container">
+  <div class="container">
+    <div class="callout callout-green">
+      <strong>The Wow Moment Rule:</strong> Prioritise tools that show visible output in under 2 minutes. Students at all levels need to experience the "wow moment" early. Teachable Machine and AI Experiments are unbeatable for this — real results in 60 seconds or less.
+    </div>
+    <div style="height:36px"></div>
+    <div class="tools-cat-header">
+      <div class="tools-cat-icon">🌱</div>
+      <div class="tools-cat-title">No-Code / Visual Tools — Track B Primary</div>
+    </div>
+    <div class="tools-grid" id="toolsVisual"></div>
+    <div class="divider"></div>
+    <div class="tools-cat-header">
+      <div class="tools-cat-icon" style="background:#171717">💻</div>
+      <div class="tools-cat-title">Code-Based Tools — Track A Primary</div>
+    </div>
+    <div class="tools-grid" id="toolsCode"></div>
+    <div class="divider"></div>
+    <div class="tools-cat-header">
+      <div class="tools-cat-icon" style="background:#52AF33">✨</div>
+      <div class="tools-cat-title">Works for Both Tracks</div>
+    </div>
+    <div class="tools-grid" id="toolsBoth"></div>
+  </div>
+</section>
+<footer class="site-footer" id="siteFooter"></footer>
+<script src="../js/shared.js"></script>
+<script>
+const toolsData = {
+  visual: [
+    { emoji:'🤖', name:'Teachable Machine', desc:'Train image, sound, and pose models in the browser with zero code. Shows results in 30 seconds. The single best "wow moment" tool for Track B. Export to any website.', meta:['free','visual','ages 10+'] },
+    { emoji:'🎨', name:'ML5.js Playground', desc:'Pre-built ML models that run in the browser. Object detection, body pose, face landmarks — all visual, all real. Great for interactive art and game projects.', meta:['free','visual','ages 11+'] },
+    { emoji:'💬', name:'ChatGPT / Claude AI', desc:'The universal entry point for prompt engineering. Students should use these as tools to solve real problems, not just chat. Guide them to prompt with purpose.', meta:['free tier','visual','ages 12+'] },
+    { emoji:'🖼', name:'DALL-E / Midjourney', desc:'AI image generation. Excellent for understanding how AI interprets text, for art projects, and discussing bias in visual models.', meta:['free tier','visual','ages 11+'] },
+    { emoji:'🧩', name:'ML for Kids + Scratch', desc:'Machine Learning for Kids connects Teachable Machine models to Scratch games. Perfect bridge for students already using Scratch coding.', meta:['free','visual','ages 10–13'] },
+    { emoji:'📊', name:'Orange Data Mining', desc:'Visual drag-and-drop data analysis and machine learning. No code. See decision trees, clusters, and predictions visually. Perfect for data literacy modules.', meta:['free','visual','ages 12+'] },
+  ],
+  code: [
+    { emoji:'🐍', name:'Python + scikit-learn', desc:'The industry standard for ML. Train classifiers, regressors, and clusterers with consistent, readable code. Start with sklearn\'s built-in datasets.', meta:['free','code','ages 13+'] },
+    { emoji:'🌐', name:'Replit', desc:'Browser-based Python IDE with no installation. Share projects with a link. Perfect for sessions and homework — students code from any device.', meta:['free','code','ages 11+'] },
+    { emoji:'📓', name:'Google Colab', desc:'Jupyter notebooks in the cloud with free GPU. Import any dataset, run sklearn and TensorFlow. The industry-standard environment for data science.', meta:['free','code','ages 14+'] },
+    { emoji:'🤗', name:'HuggingFace Inference API', desc:'Access thousands of pre-trained models with simple API calls. Sentiment analysis, text generation, image classification — all in 5 lines of Python.', meta:['free tier','code','ages 13+'] },
+    { emoji:'🧠', name:'OpenAI API', desc:'The GPT family of models via API. Build chatbots, document processors, and AI assistants. An essential Track A portfolio skill.', meta:['paid','code','ages 14+'] },
+    { emoji:'📱', name:'Streamlit', desc:'Turn Python scripts into shareable web apps in minutes. The fastest way to make an AI project look professional and presentable to a real audience.', meta:['free','code','ages 13+'] },
+  ],
+  both: [
+    { emoji:'🗂', name:'Kaggle', desc:'Real datasets, community notebooks, and beginner competitions. Track A students use code; Track B students use AutoML features to explore without writing code.', meta:['free','both','ages 13+'] },
+    { emoji:'🤖', name:'GitHub Copilot', desc:'AI-powered code assistant. Track A: an accelerator and learning tool. Track B: an introduction to the concept of AI that writes code.', meta:['free for students','both','ages 13+'] },
+    { emoji:'🌊', name:'Perplexity AI', desc:'AI-powered research tool that cites sources. Excellent for research projects and a discussion starter about AI accuracy and sourcing.', meta:['free tier','both','ages 11+'] },
+    { emoji:'📽', name:'Canva AI Suite', desc:'AI image generation, text-to-presentation, and background removal in a familiar design tool. Ideal for Track B projects needing a professional finish.', meta:['free','both','ages 10+'] },
+    { emoji:'🔬', name:'ML Playground', desc:'Interactive browser-based ML demos. Drag data points, watch models train in real time. No code, instant visual feedback. Both tracks love this.', meta:['free','both','ages 10+'] },
+    { emoji:'🎤', name:'Whisper (OpenAI)', desc:'Speech-to-text AI. Build voice-powered projects. A gateway to understanding audio ML and an exciting cross-track collaboration opportunity.', meta:['free','both','ages 12+'] },
+  ]
+};
+
+function renderTools() {
+  Object.entries(toolsData).forEach(([key, tools]) => {
+    document.getElementById(`tools${key.charAt(0).toUpperCase()+key.slice(1)}`).innerHTML = tools.map(t => `
+      <div class="tool-full-card">
+        <div class="tfc-logo">${t.emoji}</div>
+        <div class="tfc-name">${t.name}</div>
+        <div class="tfc-desc-text">${t.desc}</div>
+        <div class="tfc-meta">
+          ${t.meta.map(m => `<span class="tfc-pill${m.includes('free') ? ' free' : ''}">${m}</span>`).join('')}
+        </div>
+      </div>
+    `).join('');
+  });
+}
+document.addEventListener('DOMContentLoaded', renderTools);
+</script>
+</body>
+</html>
