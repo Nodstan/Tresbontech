@@ -53,7 +53,7 @@ function injectNavbar() {
   navbar.innerHTML = `
     <div class="navbar-inner">
       <a href="${homeHref}" class="nav-brand">
-        <div class="tt-logo-mark">${TT_LOGO_SVG}</div>
+        <div class="tt-logo-mark"><img src="${prefix}assets/Logo.png" alt="Tresbontech logo"></div>
         <div>
           <div class="tt-wordmark">Tresbontech</div>
           <span class="tt-since">Since 2024</span>
@@ -70,6 +70,18 @@ function injectNavbar() {
       </button>
     </div>
   `;
+
+  // Scroll listener for navbar transparency
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (nav) {
+      if (window.scrollY > 20) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }
+  });
 
   // Mobile menu
   const mobileMenu = document.getElementById('mobileMenu');
@@ -105,7 +117,7 @@ function injectFooter() {
       <div class="footer-grid">
         <div class="footer-brand-col">
           <a href="${isHome ? 'index.html' : '../index.html'}" style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-            <div class="tt-logo-mark">${TT_LOGO_SVG}</div>
+            <div class="tt-logo-mark"><img src="${prefix}assets/Logo.png" alt="Tresbontech logo"></div>
             <div>
               <div class="tt-wordmark" style="color:white">Tresbontech</div>
               <span class="tt-since">Academy Staff Portal</span>

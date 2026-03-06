@@ -5,23 +5,29 @@
 <title>Two Tracks Framework — Tresbontech Academy</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/brand.css"><link rel="stylesheet" href="../css/pages.css">
+<link rel="icon" type="image/png" href="../assets/Logo.png">
 <style>
 .tracks-page-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 40px; }
 .tpg-card { border-radius: 20px; overflow: hidden; border: 1px solid var(--border); }
 .tpg-head { padding: 32px; }
-.tpg-head.blue { background: var(--blue); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Crect x='8' y='8' width='12' height='4' rx='1' fill='%23ffffff' opacity='.07'/%3E%3Crect x='8' y='14' width='4' height='12' rx='1' fill='%23ffffff' opacity='.07'/%3E%3Crect x='38' y='8' width='12' height='4' rx='1' fill='%23ffffff' opacity='.07'/%3E%3Crect x='46' y='14' width='4' height='12' rx='1' fill='%23ffffff' opacity='.07'/%3E%3Crect x='8' y='38' width='4' height='12' rx='1' fill='%23ffffff' opacity='.07'/%3E%3Crect x='8' y='46' width='12' height='4' rx='1' fill='%23ffffff' opacity='.07'/%3E%3Crect x='38' y='46' width='12' height='4' rx='1' fill='%23ffffff' opacity='.07'/%3E%3Crect x='46' y='38' width='4' height='12' rx='1' fill='%23ffffff' opacity='.07'/%3E%3C/svg%3E"); }
+.tpg-head.blue { 
+  background: var(--blue); 
+  background-image: url("../assets/Studio.png");
+  background-size: cover;
+  background-position: center;
+}
 .tpg-head.azure { background: var(--azure); }
-.tpg-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 10px; }
+.tpg-label { font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 10px; }
 .tpg-head.blue .tpg-label { color: rgba(255,255,255,0.6); }
 .tpg-head.azure .tpg-label { color: var(--blue); }
 .tpg-title { font-size: 1.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; margin-bottom: 10px; }
 .tpg-head.blue .tpg-title { color: white; }
 .tpg-head.azure .tpg-title { color: var(--black); }
-.tpg-sub { font-size: 0.88rem; line-height: 1.7; font-weight: 400; }
+.tpg-sub { font-size: 0.98rem; line-height: 1.7; font-weight: 400; }
 .tpg-head.blue .tpg-sub { color: rgba(255,255,255,0.75); }
 .tpg-head.azure .tpg-sub { color: var(--text-mid); }
 .tpg-body { background: white; padding: 28px; }
-.tpg-section-title { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); margin-bottom: 12px; }
+.tpg-section-title { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); margin-bottom: 12px; }
 .tpg-items { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
 .tpg-item { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
 .tpg-item-title { font-size: 0.85rem; font-weight: 700; margin-bottom: 2px; }
