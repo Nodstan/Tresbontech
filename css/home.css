@@ -223,6 +223,7 @@
   border-radius: 16px; padding: 24px;
   position: relative; overflow: hidden;
   transition: var(--transition);
+  display: flex; flex-direction: column;
 }
 .roadmap-card:hover { border-color: var(--blue); box-shadow: var(--shadow); }
 .roadmap-card::before {
@@ -232,8 +233,8 @@
 }
 .rc-week { font-family: 'DM Mono', monospace; font-size: 0.9rem; color: var(--text-light); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
 .rc-title { font-size: 1.25rem; font-weight: 800; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.2px; }
-.rc-short { font-size: 1.1rem; color: var(--text-mid); margin-bottom: 16px; }
-.rc-tracks { display: flex; gap: 6px; }
+.rc-short { font-size: 1.1rem; color: var(--text-mid); margin-bottom: 16px; flex: 1; }
+.rc-tracks { display: flex; gap: 6px; margin-top: auto; }
 .rc-track-badge {
   font-family: 'DM Mono', monospace;
   font-size: 0.85rem; padding: 4px 10px; border-radius: 4px;

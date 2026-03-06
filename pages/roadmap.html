@@ -100,17 +100,19 @@ function renderRoadmap() {
         </div>
         <div class="rm-body">
           <div class="rm-body-inner">
-            <div class="rm-track-panel" style="grid-column:1/-1;background:#f8fafe;border-color:rgba(30,121,247,0.1);margin-bottom:4px">
+            <div class="rm-track-panel rm-overview">
               <div class="rm-track-label" style="color:#888;margin-bottom:6px">OVERVIEW</div>
               <p style="font-size:0.85rem;color:#5a5a7a;line-height:1.7">${item.overview}</p>
             </div>
-            <div class="rm-track-panel">
-              <div class="rm-track-label a">💻 Track A — Code Path</div>
-              <ul class="rm-track-items">${item.trackA.map(t=>`<li>${t}</li>`).join('')}</ul>
-            </div>
-            <div class="rm-track-panel">
-              <div class="rm-track-label b">🌱 Track B — Concept Path</div>
-              <ul class="rm-track-items">${item.trackB.map(t=>`<li>${t}</li>`).join('')}</ul>
+            <div class="rm-tracks-grid">
+              <div class="rm-track-panel">
+                <div class="rm-track-label a">💻 Track A — Code Path</div>
+                <ul class="rm-track-items">${item.trackA.map(t=>`<li>${t}</li>`).join('')}</ul>
+              </div>
+              <div class="rm-track-panel">
+                <div class="rm-track-label b">🌱 Track B — Concept Path</div>
+                <ul class="rm-track-items">${item.trackB.map(t=>`<li>${t}</li>`).join('')}</ul>
+              </div>
             </div>
             <div class="rm-output-row">
               <div class="rm-output-label">Session Output (Both Tracks)</div>

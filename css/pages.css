@@ -89,6 +89,12 @@
 .rm-card.open .rm-body { max-height: 1000px; }
 .rm-body-inner {
   padding: 0 24px 24px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.rm-overview {
+  background: #f8fafe; border-color: rgba(30,121,247,0.1); margin-bottom: 4px;
+}
+.rm-tracks-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 }
 .rm-track-panel {
@@ -108,13 +114,11 @@
 }
 .rm-track-items li::before { content: '▸'; color: var(--blue); flex-shrink: 0; font-size: 0.8rem; margin-top: 2px; }
 .rm-output-row {
-  grid-column: 1 / -1;
   background: var(--azure); border-radius: 10px; padding: 14px 16px;
 }
 .rm-output-label { font-family: 'DM Mono', monospace; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
 .rm-output-text { font-size: 1.1rem; color: var(--text-mid); line-height: 1.6; }
 .rm-tip-row {
-  grid-column: 1 / -1;
   background: rgba(255,184,0,0.07); border: 1px solid rgba(255,184,0,0.2);
   border-radius: 10px; padding: 14px 16px;
 }
@@ -122,8 +126,7 @@
 .rm-tip-text { font-size: 1.1rem; color: var(--text-mid); line-height: 1.6; font-style: italic; }
 
 @media (max-width: 640px) {
-  .rm-body-inner { grid-template-columns: 1fr; }
-  .rm-output-row, .rm-tip-row { grid-column: 1; }
+  .rm-tracks-grid { grid-template-columns: 1fr; }
 }
 
 /* ─── PROJECTS PAGE ─── */
